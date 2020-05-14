@@ -6,16 +6,16 @@ import Details from './components/Details/Details';
 import Cart from './components/Cart/Cart';
 import Default from './components/Default/Default';
 
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
     <div className='App'>
       <Navbar />
       <Switch>
-        <Route path='/cart' component={Cart} />
+        <Route exact path='/' component={ProductList} />
         <Route path='/details' component={Details} />
-        <Route path='/' component={ProductList} />
+        <Route path='/cart' component={Cart} />
         <Route component={Default} />
       </Switch>
     </div>
