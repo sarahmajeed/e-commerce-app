@@ -2,6 +2,22 @@ import React from 'react';
 import logo from '../../logo.svg';
 import './Navbar.scss';
 
+const navSlide = () => {
+  const nav = document.querySelector('.nav-links');
+  nav.classList.toggle('nav-active');
+  const navLinks = document.querySelectorAll('.nav-links li');
+  const burger = document.querySelector('.burger');
+  burger.classList.toggle('toggle');
+
+  navLinks.forEach((link, index) => {
+    if (link.style.animation) {
+      link.style.animation = '';
+    } else {
+      link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 1}s`;
+    }
+  });
+};
+
 const Navbar = () => {
   return (
     <nav>
@@ -22,7 +38,7 @@ const Navbar = () => {
           <a href='#'>Contact</a>
         </li>
       </ul>
-      <div className='burger'>
+      <div onClick={navSlide} className='burger'>
         <div className='line1'></div>
         <div className='line2'></div>
         <div className='line3'></div>
